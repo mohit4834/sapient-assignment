@@ -1,0 +1,22 @@
+<header>
+  <h1>SpaceX Launch Programs</h1>
+</header>
+<div class="right-side">
+  <button mat-raised-button color="accent" class="padding-10 button-display">
+    <a routerLink="/success" routerLinkActive="orange-color">Success Programs</a>
+  </button>
+  <button mat-raised-button color="accent" class="padding-10 button-display">
+    <a routerLink="/launch" routerLinkActive="orange-color">Launch Programs</a>
+  </button>
+  <button mat-raised-button color="accent" class="padding-10 button-display">
+    <a routerLink="/all" routerLinkActive="orange-color">All Programs</a>
+  </button>
+</div>
+    <div class="full-width">
+      <router-outlet></router-outlet>
+    </div>
+<footer class="center-footer">
+  <h2>
+    Developed by: Mohit Goyal
+  </h2>
+</footer>
