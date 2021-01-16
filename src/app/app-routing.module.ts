@@ -4,10 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'success', loadChildren: () => import('./success/success.module').then(m => m.SuccessModule) },
-  { path: 'launch', loadChildren: () => import('./launch/launch.module').then(m => m.LaunchModule) },
-  { path: 'all', loadChildren: () => import('./all/all.module').then(m => m.AllModule) },
-  { path: '**', component: DefaultComponent }
+  // { path: 'success', loadChildren: () => import('./success/success.module').then(m => m.SuccessModule) },
+  // { path: 'launch', loadChildren: () => import('./launch/launch.module').then(m => m.LaunchModule) },
+  { path: 'all/:id', loadChildren: () => import('./all/all.module').then(m => m.AllModule) },
+  { path: '**', loadChildren: () => import('./all/all.module').then(m => m.AllModule) }
+  // { path: '**', component: DefaultComponent }
 ];
 
 @NgModule({

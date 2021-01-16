@@ -11,7 +11,7 @@
             </h3>
           </div>
           <ng-container *ngFor="let year of launchYears">
-            <button mat-raised-button color="primary" class="padding-10 button-display" (click)="filterDataByYear(year)" 
+            <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_year', year)" 
             [ngClass]="{'selectedButton': selectedYear === year}">
               {{year}}
             </button>
@@ -23,10 +23,12 @@
               <hr>
             </h3>
             <div>
-              <button mat-raised-button color="primary" class="padding-10 button-display" (click)="filterDataByFlag('launch_success', true)">
+              <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', true)"
+              [ngClass]="{'selectedButton': selectedLaunch == true}">
                 True
               </button>
-              <button mat-raised-button color="primary" class="padding-10 button-display" (click)="filterDataByFlag('launch_success', false)">
+              <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', false)"
+              [ngClass]="{'selectedButton': selectedLaunch == false}">
                 False
               </button>
             </div>
@@ -37,10 +39,12 @@
               <hr>
             </h3>
             <div>
-              <button mat-raised-button color="primary" class="padding-10 button-display" (click)="filterDataByFlag('launch_landing', true)">
+              <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', true)"
+              [ngClass]="{'selectedButton': selectedLand == true}">
                 True
               </button>
-              <button mat-raised-button color="primary" class="padding-10 button-display" (click)="filterDataByFlag('launch_landing', false)">
+              <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', false)"
+              [ngClass]="{'selectedButton': selectedLand == false}">
                 False
               </button>
             </div>
@@ -51,7 +55,7 @@
   
       <div fxLayout="column wrap" fxLayoutAlign="start start" class="content">
         <div class="report-list">
-          <ng-container *ngFor="let item of filterData">
+          <ng-container *ngFor="let item of filteredData">
             <mat-card class="card-display">
               <ng-container mat-card-image>
                 <img src="{{item.links?.mission_patch}}" width="80%" height="50%" title="{{item.mission_name}}"
