@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "heroku-postbuild": "ng build --prod --aot --output-hashing=all",
+    "start:heroku":"node dist/server",
+    "heroku-postbuild": "npm run build:ssr",
     "build": "npm run lint && ng build --prod --aot --output-hashing=all",
     "test": "ng test",
     "lint": "ng lint",

@@ -9,11 +9,10 @@ describe('FetchDataService', () => {
     TestBed.configureTestingModule({
     imports: [ HttpClientTestingModule ],
       providers: [FetchDataService]
-    })
+    });
     service = TestBed.get(FetchDataService);
   });
   it('should be created', () => {
-    const service: FetchDataService = TestBed.get(FetchDataService);
     expect(service).toBeTruthy();
   });
 
