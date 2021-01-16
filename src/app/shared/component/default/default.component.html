@@ -87,7 +87,9 @@
               </div>
             </mat-card>
           </ng-container>
-  
+          <ng-container *ngIf="filteredData && filteredData.length === 0">
+            <h2>No Data Available</h2>
+          </ng-container>
         </div>
       </div>
     </div>

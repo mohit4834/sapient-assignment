@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { DefaultComponent } from './../shared/component/default/default.component';
 import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { MatButtonModule, MatCardModule } from '@angular/material';
@@ -11,7 +12,7 @@ describe('AllComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatButtonModule, MatCardModule],
+      imports: [MatButtonModule, MatCardModule, RouterTestingModule],
       declarations: [AllComponent, DefaultComponent],
       providers: [FetchDataService, HttpClient, HttpHandler]
     })
