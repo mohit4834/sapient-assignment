@@ -29,3 +29,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Approach and Usage in application
 
 I have used angular flex and media queries for responsive web design of the application.
+
+## Performance as shown on Lighthouse of browser dev tools is attached below
+
+![LightHouse with all indexs](src\assets\performance-images\LightHouse.JPG)
+![Accessibility Report](src\assets\performance-images\Accessibility.JPG)
+![Performance Report](src\assets\performance-images\Performance.JPG)
+![SEO Report](src\assets\performance-images\SEO.JPG)
