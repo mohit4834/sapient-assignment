@@ -21,7 +21,7 @@ describe('FetchDataService', () => {
 
     it('should return a observable of array in getLaunchData', () => {
       let response;
-      service.getLaunchData().subscribe(res => {
+      service.getFilteredData().subscribe(res => {
         response = res;
       });
 
