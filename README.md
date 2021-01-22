@@ -32,7 +32,7 @@ I have used angular flex and media queries for responsive web design of the appl
 
 ## Performance as shown on Lighthouse of browser dev tools is attached below
 
-![LightHouse with all indexs](https://github.com/mohit4834/sapient-assignment/blob/master/src/assets/performance-images/LightHouse.JPG)
+![LightHouse with all indexs](https://github.com/mohit4834/sapient-assignment/blob/master/src/assets/performance-images/LightHouseReport.JPG)
 ![Accessibility Report](https://github.com/mohit4834/sapient-assignment/blob/master/src/assets/performance-images/Accessibility.JPG)
 ![Performance Report](https://github.com/mohit4834/sapient-assignment/blob/master/src/assets/performance-images/Performance.JPG)
 ![SEO Report](https://github.com/mohit4834/sapient-assignment/blob/master/src/assets/performance-images/SEO.JPG)
