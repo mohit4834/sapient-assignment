@@ -21,7 +21,7 @@ export class DefaultComponent implements OnInit {
   @Input()
   landSuccess: any;
 
-  launchYears = ['2006', '2007', '2008', '2009', '2010', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'];
+  launchYears = ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'];
   displayFlag: boolean;
   selectedYear: string;
   selectedLaunch: boolean;
@@ -33,12 +33,6 @@ export class DefaultComponent implements OnInit {
   ngOnInit(): void {
     if (this.launchYear === undefined && this.landSuccess === undefined && this.launchSuccess === undefined) {
       this.queryParams = {};
-      this.launchYears = [];
-      this.filteredData.forEach((element, index) => {
-        if (this.launchYears.indexOf(element.launch_year) < 0) {
-          this.launchYears.push(element.launch_year);
-        }
-      });
       console.log('Launch Years', this.launchYears);
       this.displayFlag = true;
     } else {

@@ -32,6 +32,6 @@ export class FetchDataService {
     }  else {
       delete param.land_success;
     }
-    return this.http.get('https://api.spaceXdata.com/v3/launches', {params: param});
+    return this.http.get('https://api.spaceXdata.com/v3/launches?limit=100', {params: param});
   }
 }

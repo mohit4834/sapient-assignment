@@ -11,8 +11,8 @@
           </h3>
         </div>
         <ng-container *ngFor="let year of launchYears">
-          <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_year', year)" 
-          [ngClass]="{'selectedButton': selectedYear === year}">
+          <button id="button{{year}}" name="button{{year}}" mat-raised-button class="padding-10 button-display" (click)="filterData('launch_year', year)"
+            [ngClass]="{'selectedButton': selectedYear === year}">
             {{year}}
           </button>
         </ng-container>
@@ -24,11 +24,11 @@
           </h3>
           <div>
             <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', true)"
-            [ngClass]="{'selectedButton': selectedLaunch == true}">
+              [ngClass]="{'selectedButton': selectedLaunch == true}">
               True
             </button>
             <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', false)"
-            [ngClass]="{'selectedButton': selectedLaunch == false}">
+              [ngClass]="{'selectedButton': selectedLaunch == false}">
               False
             </button>
           </div>
@@ -40,11 +40,11 @@
           </h3>
           <div>
             <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', true)"
-            [ngClass]="{'selectedButton': selectedLand == true}">
+              [ngClass]="{'selectedButton': selectedLand == true}">
               True
             </button>
             <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', false)"
-            [ngClass]="{'selectedButton': selectedLand == false}">
+              [ngClass]="{'selectedButton': selectedLand == false}">
               False
             </button>
           </div>
@@ -65,7 +65,8 @@
               <h4>
                 <mat-card-content>
                   <div class="content-padding">
-                    {{item.mission_name}} # {{item.flight_number}}
+                    <span *ngIf="item?.mission_name">{{item.mission_name}}</span>
+                    <span *ngIf="item?.flight_number"> # {{item.flight_number}}</span>
                   </div>
                   <div class="content-padding">
                     Mission Ids:
@@ -73,14 +74,22 @@
                       <li>{{id}}</li>
                     </span>
                   </div>
-                  <div class="content-padding">
+                  <div class="content-padding" *ngIf="item?.launch_year">
                     Launch Year: {{item.launch_year}}
                   </div>
-                  <div class="content-padding">
+                  <div class="content-padding" *ngIf="item">
                     Successful Launch: {{item.launch_success}}
                   </div>
                   <div class="content-padding">
-                    Successful Landing: {{item.launch_landing}}
+                    Successful Landing:
+                    <span
+                      *ngIf="(item?.rocket?.first_stage?.cores[0]?.land_success == true || item?.rocket?.first_stage?.cores[0]?.land_success == false)">
+                      {{item.rocket.first_stage.cores[0].land_success}}
+                    </span>
+                    <span
+                      *ngIf="(item?.rocket?.first_stage?.cores[0]?.land_success != true && item?.rocket?.first_stage?.cores[0]?.land_success != false)">
+                      Not Available
+                    </span>
                   </div>
                 </mat-card-content>
               </h4>

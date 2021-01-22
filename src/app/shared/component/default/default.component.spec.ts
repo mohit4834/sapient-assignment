@@ -5,7 +5,7 @@ import { MatButtonModule, MatCardModule } from '@angular/material';
 import { DefaultComponent } from './default.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent;
@@ -30,4 +30,25 @@ describe('DefaultComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call filterData', async(() => {
+    spyOn(component, 'filterData');
+    let buttons = fixture.debugElement.query(By.css('#button2006')).nativeElement;
+    buttons.click();
+    
+    fixture.whenStable().then(() => {
+      expect(component.filterData).toHaveBeenCalled();
+    });
+  }));
+
+  it('should call filterData with 2007', async(() => {
+    spyOn(component, 'filterData');
+    let buttons = fixture.debugElement.query(By.css('#button2007')).nativeElement;
+    buttons.click('launch_year', '2007');
+    
+    fixture.whenStable().then(() => {
+      expect(component.filterData).toHaveBeenCalledWith('launch_year', '2007');
+    });
+  }));
+
 });
