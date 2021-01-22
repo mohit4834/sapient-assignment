@@ -5,6 +5,7 @@
     left: 0;
     right: 0;
     background: #eee;
+    max-width: 1440px;
 }
 
 .background-grey {
@@ -30,12 +31,16 @@
     overflow-y: auto;
 }
 
+.content-padding {
+    padding: 10px;
+}
+
 .card-display {
-    width: calc(23% - 20px);
+    width: calc(30% - 20px);
     border: 1px solid;
     padding: 10px;
     margin: 10px;
-    height: 300px;
+    height: 400px;
     text-align: center;
 }
 .button-display {
@@ -117,14 +122,14 @@
 
 @media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
     .sidenav {
-        width: calc(25% - 20px);
+        width: calc(32% - 20px);
         height: 100%;
         margin: 10px;
         background-color: white;
     }
     
     .content {
-        width: calc(75% - 20px);
+        width: calc(64% - 20px);
         height: 100%;
         margin: 10px;
         background-color: white;
@@ -137,25 +142,29 @@
     }
 
     .card-display {
-        width: calc(46% - 20px);
+        width: calc(70% - 20px);
         border: 1px solid;
         padding: 10px;
         margin: 10px;
-        height: 300px;
+        height: 400px;
         text-align: center;
+    }
+
+    .content-padding {
+        padding: 3px;
     }
 }
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
     .sidenav {
-        width: calc(25% - 20px);
+        width: calc(32% - 20px);
         height: 100%;
         margin: 10px;
         background-color: white;
     }
     
     .content {
-        width: calc(75% - 20px);
+        width: calc(100% - 20px);
         height: 100%;
         margin: 10px;
         background-color: white;
@@ -168,11 +177,15 @@
     }
 
     .card-display {
-        width: calc(30% - 20px);
+        width: calc(43% - 20px);
         border: 1px solid;
         padding: 10px;
         margin: 10px;
-        height: 300px;
+        height: 400px;
         text-align: center;
+    }
+
+    .content-padding {
+        padding: 6px;
     }
 }

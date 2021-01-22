@@ -1,96 +1,96 @@
 <ng-container class="example-container">
 
-    <div fxLayout="column wrap" fxLayoutAlign="start start" class="flex-display">
-      <div class="sidenav button-list" fxLayout="column wrap" fxLayoutAlign="start start">
-        <div *ngIf="displayFlag">
-          <h2 class="left-padding">Filters</h2>
+  <div fxLayout="column wrap" fxLayoutAlign="start start" class="flex-display">
+    <div class="sidenav button-list" fxLayout="column wrap" fxLayoutAlign="start start">
+      <div *ngIf="displayFlag" class="padding-10">
+        <h2 class="left-padding">Filters</h2>
+        <div>
+          <h3 class="center-align">
+            Launch Year
+            <hr>
+          </h3>
+        </div>
+        <ng-container *ngFor="let year of launchYears">
+          <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_year', year)" 
+          [ngClass]="{'selectedButton': selectedYear === year}">
+            {{year}}
+          </button>
+        </ng-container>
+
+        <div>
+          <h3 class="center-align">
+            Successful Launch
+            <hr>
+          </h3>
           <div>
-            <h3 class="center-align">
-              Launch Year
-              <hr>
-            </h3>
-          </div>
-          <ng-container *ngFor="let year of launchYears">
-            <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_year', year)" 
-            [ngClass]="{'selectedButton': selectedYear === year}">
-              {{year}}
+            <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', true)"
+            [ngClass]="{'selectedButton': selectedLaunch == true}">
+              True
             </button>
-          </ng-container>
-  
-          <div>
-            <h3 class="center-align">
-              Successful Launch
-              <hr>
-            </h3>
-            <div>
-              <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', true)"
-              [ngClass]="{'selectedButton': selectedLaunch == true}">
-                True
-              </button>
-              <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', false)"
-              [ngClass]="{'selectedButton': selectedLaunch == false}">
-                False
-              </button>
-            </div>
+            <button mat-raised-button class="padding-10 button-display" (click)="filterData('launch_success', false)"
+            [ngClass]="{'selectedButton': selectedLaunch == false}">
+              False
+            </button>
           </div>
+        </div>
+        <div>
+          <h3 class="center-align">
+            Successful Landing
+            <hr>
+          </h3>
           <div>
-            <h3 class="center-align">
-              Successful Landing
-              <hr>
-            </h3>
-            <div>
-              <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', true)"
-              [ngClass]="{'selectedButton': selectedLand == true}">
-                True
-              </button>
-              <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', false)"
-              [ngClass]="{'selectedButton': selectedLand == false}">
-                False
-              </button>
-            </div>
+            <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', true)"
+            [ngClass]="{'selectedButton': selectedLand == true}">
+              True
+            </button>
+            <button mat-raised-button class="padding-10 button-display" (click)="filterData('land_success', false)"
+            [ngClass]="{'selectedButton': selectedLand == false}">
+              False
+            </button>
           </div>
-  
         </div>
-      </div>
-  
-      <div fxLayout="column wrap" fxLayoutAlign="start start" class="content">
-        <div class="report-list">
-          <ng-container *ngFor="let item of filteredData">
-            <mat-card class="card-display">
-              <ng-container mat-card-image>
-                <img src="{{item.links?.mission_patch}}" width="80%" height="50%" title="{{item.mission_name}}"
-                  style="background: lightgrey;">
-              </ng-container>
-              <div class="content-justify">
-                <h4>
-                  <mat-card-content>
-                    <div>
-                      {{item.mission_name}} # {{item.flight_number}}
-                    </div>
-                    <div>
-                      Mission Ids:
-                      <span *ngFor="let id of item.mission_id">
-                        <li>{{id}}</li>
-                      </span>
-                    </div>
-                    <div>
-                      Launch Year: {{item.launch_year}}
-                    </div>
-                    <div>
-                      Successful Launch: {{item.launch_success}}
-                    </div>
-                    <div>
-                      Successful Landing: {{item.launch_landing}}
-                    </div>
-                  </mat-card-content>
-                </h4>
-              </div>
-            </mat-card>
-          </ng-container>
-          <ng-container *ngIf="filteredData && filteredData.length === 0">
-            <h2>No Data Available</h2>
-          </ng-container>
-        </div>
+
       </div>
     </div>
-  </ng-container>
+
+    <div fxLayout="column wrap" fxLayoutAlign="start start" class="content">
+      <div class="report-list">
+        <ng-container *ngFor="let item of filteredData">
+          <mat-card class="card-display">
+            <ng-container mat-card-image>
+              <img src="{{item.links?.mission_patch}}" width="80%" height="50%" title="{{item.mission_name}}"
+                style="background: lightgrey;">
+            </ng-container>
+            <div class="content-justify">
+              <h4>
+                <mat-card-content>
+                  <div class="content-padding">
+                    {{item.mission_name}} # {{item.flight_number}}
+                  </div>
+                  <div class="content-padding">
+                    Mission Ids:
+                    <span *ngFor="let id of item.mission_id">
+                      <li>{{id}}</li>
+                    </span>
+                  </div>
+                  <div class="content-padding">
+                    Launch Year: {{item.launch_year}}
+                  </div>
+                  <div class="content-padding">
+                    Successful Launch: {{item.launch_success}}
+                  </div>
+                  <div class="content-padding">
+                    Successful Landing: {{item.launch_landing}}
+                  </div>
+                </mat-card-content>
+              </h4>
+            </div>
+          </mat-card>
+        </ng-container>
+        <ng-container *ngIf="filteredData && filteredData.length === 0">
+          <h2>No Data Available</h2>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>
