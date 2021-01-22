@@ -33,9 +33,8 @@ describe('DefaultComponent', () => {
 
   it('should call filterData', async(() => {
     spyOn(component, 'filterData');
-    let buttons = fixture.debugElement.query(By.css('#button2006')).nativeElement;
+    const buttons = fixture.debugElement.query(By.css('#button2006')).nativeElement;
     buttons.click();
-    
     fixture.whenStable().then(() => {
       expect(component.filterData).toHaveBeenCalled();
     });
@@ -43,9 +42,8 @@ describe('DefaultComponent', () => {
 
   it('should call filterData with 2007', async(() => {
     spyOn(component, 'filterData');
-    let buttons = fixture.debugElement.query(By.css('#button2007')).nativeElement;
+    const buttons = fixture.debugElement.query(By.css('#button2007')).nativeElement;
     buttons.click('launch_year', '2007');
-    
     fixture.whenStable().then(() => {
       expect(component.filterData).toHaveBeenCalledWith('launch_year', '2007');
     });

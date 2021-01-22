@@ -15,7 +15,7 @@ describe('AllComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatButtonModule, MatCardModule, RouterTestingModule, RouterTestingModule.withRoutes([]),],
+      imports: [MatButtonModule, MatCardModule, RouterTestingModule, RouterTestingModule.withRoutes([])],
       declarations: [AllComponent, DefaultComponent],
       providers: [
         {provide: ActivatedRoute, useValue: {
@@ -35,13 +35,12 @@ describe('AllComponent', () => {
     component.allData = [{id: 123, name: 'SpaceX'}];
     fetchDataService = TestBed.get(FetchDataService);
     router = TestBed.get(Router);
- 
-  fixture.detectChanges();
+    fixture.detectChanges();
   });
 
-  it('should create', async(inject([FetchDataService], (fetchDataService: FetchDataService) => {
+  it('should create', () => {
     expect(component).toBeTruthy();
-  })));
+  });
 
   it('should load Filtered data', () => {
     spyOn(fetchDataService, 'getFilteredData')

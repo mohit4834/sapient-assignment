@@ -32,7 +32,6 @@ describe('FetchDataService', () => {
       service.getUnfilteredData().subscribe(res => {
         response = res;
       });
-      
       expect(response).toEqual(undefined);
     });
   });
