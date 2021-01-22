@@ -32,7 +32,7 @@
 }
 
 .content-padding {
-    padding: 10px;
+    padding: 6px;
 }
 
 .card-display {
@@ -115,8 +115,12 @@
         border: 1px solid;
         padding: 10px;
         margin: 10px;
-        height: 300px;
+        height: 400px;
         text-align: center;
+    }
+
+    .content-padding {
+        padding: 3px;
     }
 }
 
