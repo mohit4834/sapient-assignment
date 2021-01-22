@@ -1,11 +1,17 @@
 .full-width {
     width: 100%;
+    max-width: 1440px;
 }
 .padding-10 {
     margin: 10px;
 }
 
 .center-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.center-aligned {
     display: flex;
     justify-content: center;
 }

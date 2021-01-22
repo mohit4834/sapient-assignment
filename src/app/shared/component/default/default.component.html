@@ -2,7 +2,7 @@
 
     <div fxLayout="column wrap" fxLayoutAlign="start start" class="flex-display">
       <div class="sidenav button-list" fxLayout="column wrap" fxLayoutAlign="start start">
-        <div *ngIf="displayFlag">
+        <div *ngIf="displayFlag" class="padding-10">
           <h2 class="left-padding">Filters</h2>
           <div>
             <h3 class="center-align">
@@ -64,22 +64,22 @@
               <div class="content-justify">
                 <h4>
                   <mat-card-content>
-                    <div>
+                    <div class="content-padding">
                       {{item.mission_name}} # {{item.flight_number}}
                     </div>
-                    <div>
+                    <div class="content-padding">
                       Mission Ids:
                       <span *ngFor="let id of item.mission_id">
                         <li>{{id}}</li>
                       </span>
                     </div>
-                    <div>
+                    <div class="content-padding">
                       Launch Year: {{item.launch_year}}
                     </div>
-                    <div>
+                    <div class="content-padding">
                       Successful Launch: {{item.launch_success}}
                     </div>
-                    <div>
+                    <div class="content-padding">
                       Successful Landing: {{item.launch_landing}}
                     </div>
                   </mat-card-content>
