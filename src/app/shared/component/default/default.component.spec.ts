@@ -1,21 +1,22 @@
 import { FetchDataService } from 'src/app/core/services/fetch-data.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { MatButtonModule, MatCardModule } from '@angular/material';
-
 import { DefaultComponent } from './default.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent;
   let fixture: ComponentFixture<DefaultComponent>;
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatButtonModule, MatCardModule, RouterTestingModule],
+      imports: [MatButtonModule, MatCardModule, RouterTestingModule, RouterTestingModule.withRoutes([])],
       declarations: [ DefaultComponent],
-      providers: [FetchDataService, HttpClient, HttpHandler ]
+      providers: [FetchDataService, HttpClient, HttpHandler, { provide: Router, useValue: routerSpy } ]
     })
     .compileComponents();
   }));
@@ -49,4 +50,10 @@ describe('DefaultComponent', () => {
     });
   }));
 
+  it('should call filterData with 2007 and navigate to all', async(() => {
+    component.filterData('launch_year', '2007');
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['all'], {
+      queryParams: { launch_year: '2007' }
+    });
+  }));
 });
