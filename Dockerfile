@@ -1,6 +1,13 @@
 #base image
 FROM nginx as base
 
+COPY nginx/default.conf /etc/nginx/conf.d/
+RUN rm -rf /usr/share/nginx/html/*
+
+VOLUME /usr/share/nginx/html
+VOLUME /etc/nginx
+VOLUME /var/log/nginx/log
+
 # build image
 FROM node:16.13.0 as build
 
