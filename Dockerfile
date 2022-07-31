@@ -26,6 +26,6 @@ RUN npm install -g @angular/cli
 COPY . /app
 
 # build app
-RUN npm run build
+RUN npm run build --prod --aot --outputHashing=all
 
 CMD ["nginx", "-g", "daemon off;"]
