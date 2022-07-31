@@ -28,4 +28,8 @@ COPY . /app
 # build app
 RUN npm run build --prod --aot --outputHashing=all
 
+FROM base as final
+
+COPY --from=build /app/dist/browser /usr/share/nginx/html/
+
 CMD ["nginx", "-g", "daemon off;"]
