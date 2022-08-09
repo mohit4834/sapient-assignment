@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: goyalmohit48/assignment:v4Jenkins
+          image: goyalmohit48/assignment:X97UFcUGtHjt13tbQKHlnsm_9BMVdyizuR3yM6VFRvoeFAviexIo_3KZlz78K0PXszLQG9uNWCdmx3kXQmOtXjZ
           imagePullPolicy: Always
           # envFrom:
           # - configMapRef:
