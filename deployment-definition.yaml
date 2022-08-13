@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kubernetes-cluster-mohitgoyal. 
+  name: kubernetes-cluster-mohitgoyal 
   labels:
     name: kubernetes-cluster-mohitgoyal
 ---
@@ -22,13 +22,13 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: goyalmohit48/assignment:i-mohitgoyal-master:latest
+          image: goyalmohit48/i-mohitgoyal-master:latest
           imagePullPolicy: Always
-          # envFrom:
-          # - configMapRef:
-              # name: special-config
-          # - secretRef:
-              # name: top-secret
+          envFrom:
+          - configMapRef:
+              name: special-config
+          - secretRef:
+              name: top-secret
   replicas: 4
   selector:
     matchLabels:
