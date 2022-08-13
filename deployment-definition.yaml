@@ -1,11 +1,11 @@
-apiVersion: apps/v1
-kind: Namespace
+apiVersion: "apps/v1"
+kind: "Namespace"
 metadata:
-  name: kubernetes-cluster-mohitgoyal 
+  name: "kubernetes-cluster-mohitgoyal"
   labels:
-    name: kubernetes-cluster-mohitgoyal
+    name: "kubernetes-cluster-mohitgoyal"
 ---
-apiVersion: apps/v1
+apiVersion: "apps/v1"
 kind: Deployment
 metadata:
   name: myapp-deployment
@@ -35,7 +35,7 @@ spec:
       type: front-end
       app: myapp
 ---
-apiVersion: apps/v1
+apiVersion: "apps/v1"
 kind: "Service"
 metadata:
   name: "myapp-deployment-service"
