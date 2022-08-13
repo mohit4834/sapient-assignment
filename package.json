@@ -7,7 +7,7 @@
     "start:heroku": "node dist/server",
     "heroku-postbuild": "npm run build:ssr",
     "build": "npm run lint && ng build --prod --aot --output-hashing=all",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
