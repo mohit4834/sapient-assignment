@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class FetchDataService {
   constructor(private http: HttpClient) { }
 
   getUnfilteredData() {
-    return this.http.get('https://api.spaceXdata.com/v3/launches?limit=100');
+    return this.http.get(environment.API_URL);
   }
 
   getFilteredData(launchYear?, launchSuccess?, landSuccess?) {
@@ -32,6 +33,6 @@ export class FetchDataService {
     }  else {
       delete param.land_success;
     }
-    return this.http.get('https://api.spaceXdata.com/v3/launches?limit=100', {params: param});
+    return this.http.get(environment.API_URL, {params: param});
   }
 }
