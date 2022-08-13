@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'SpaceX Launch Programs';
 
   constructor() {
-    console.log('Welcome to Application by Mohit Goyal!')
+    console.log('Welcome to Application by Mohit Goyal!');
   }
 
 }
