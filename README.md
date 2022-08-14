@@ -20,7 +20,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running Sonar Scanner
 
-Run `sonar-scanner` to execute the sonar scanner.
+Run `sonar-scanner` to execute the sonar scanner (Updated).
 
 ## Running end-to-end tests
 
