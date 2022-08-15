@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: goyalmohit48/i-mohitgoyal-master:latest
+          image: goyalmohit48/i-mohitgoyal-develop:latest
           imagePullPolicy: Always
           envFrom:
           - configMapRef:
