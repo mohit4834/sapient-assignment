@@ -8,7 +8,6 @@ environment {
     CLUSTER_NAME = 'cluster-demo'
     LOCATION = 'us-central1-c'
     CREDENTIALS_ID = 'flowing-radio-358003'
-    IMAGE_NAME = 'new'
     scannerHome = tool name: 'Test_Sonar'
     username= 'admin'
     appName= 'assignment'
@@ -32,30 +31,33 @@ tools {
         }
         stage('Install Angular') {
             steps {
+                script {
+                    env.IMAGE_NAME = 'master'
+                }
                 powershell 'npm install -g @angular/cli' 
             }
         }
         stage('SonarQube Analysis') {
-            environment {
-                IMAGE_NAME = 'develop'
-            }
             when {
                 branch 'develop'
             }
             steps {
+                script {
+                    env.IMAGE_NAME = 'develop'
+                }
                 withSonarQubeEnv('SonarQubeScanner') {
                   bat "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
         stage('Run Test Cases') {
-            environment {
-                IMAGE_NAME = 'master'
-            }
             when {
                 branch 'master'
             }
             steps {
+                script {
+                    env.IMAGE_NAME = 'master'
+                }
                 powershell 'npm run test' 
             }
         }
