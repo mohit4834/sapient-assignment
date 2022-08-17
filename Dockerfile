@@ -4,8 +4,6 @@ FROM nginx as base
 RUN rm -rf /usr/share/nginx/html/*
 
 VOLUME /usr/share/nginx/html
-VOLUME /etc/nginx
-VOLUME /var/log/nginx/log
 
 # build image
 FROM node:16.13.0 as build
