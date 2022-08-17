@@ -11,7 +11,7 @@ tools {
 }
 
     stages {
-        stage('checkout') {
+        stage('Build') {
             steps {
                 checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mohit4834/sapient-assignment.git']]]
 				powershell 'npm install'
@@ -21,7 +21,7 @@ tools {
                 powershell 'npm install -g @angular/cli' 
             }
         }
-        stage('SonarQube Analysis') {
+        stage('Sonarqube Analysis') {
             when {
                 branch 'develop'
             }
@@ -34,7 +34,7 @@ tools {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
+        stage('Kubernetes Deployment') {
             steps{
                 powershell "kubectl --kubeconfig=C:/Users/mohitgoyal/.kube/config apply -f deployment-definition.yaml"
             }
