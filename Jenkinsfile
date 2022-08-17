@@ -13,11 +13,7 @@ tools {
     stages {
         stage('Build') {
             steps {
-                checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mohit4834/sapient-assignment.git']]]
 				powershell 'npm install'
-				script {
-                    env.IMAGE_NAME = 'master'
-                }
                 powershell 'npm install -g @angular/cli' 
             }
         }
@@ -26,9 +22,6 @@ tools {
                 branch 'develop'
             }
             steps {
-                script {
-                    env.IMAGE_NAME = 'develop'
-                }
                 withSonarQubeEnv('SonarQubeScanner') {
                   bat "${scannerHome}/bin/sonar-scanner"
                 }
