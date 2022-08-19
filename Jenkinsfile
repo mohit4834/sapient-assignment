@@ -27,7 +27,7 @@ tools {
         }
         stage('Kubernetes Deployment') {
             steps{
-                powershell "kubectl --kubeconfig=C:/Users/mohitgoyal/.kube/config apply -f deployment-definition.yaml"
+                powershell "kubectl apply -f deployment-definition.yaml"
             }
         }
     }
