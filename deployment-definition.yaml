@@ -51,6 +51,20 @@ spec:
               name: special-config
           - secretRef:
               name: top-secret
+          volumeMounts:
+          - name: secrets
+            mountPath: "/etc/secret"
+            readOnly: true
+          - name: configs
+            mountPath: "/etc/config"
+      volumes:
+      - name: secrets
+        secret:
+          secretName: top-secret
+          defaultMode: 0400
+      - name: configs
+        configMap:
+          name: special-config
   replicas: 4
   selector:
     matchLabels:
